@@ -1,0 +1,208 @@
+.dancing-rabbit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.rabbit-wrapper {
+  position: relative;
+  display: inline-block;
+  transform-origin: center bottom;
+}
+
+.rabbit-image {
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.rabbit-wrapper.dancing .rabbit-image {
+  animation: rabbitDance 2s ease-in-out infinite;
+}
+
+@keyframes rabbitDance {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  10% {
+    transform: translateY(-20px) rotate(-5deg) scale(1.05);
+  }
+  20% {
+    transform: translateY(0px) rotate(5deg) scale(1);
+  }
+  30% {
+    transform: translateY(-15px) rotate(-3deg) scale(1.1);
+  }
+  40% {
+    transform: translateY(0px) rotate(3deg) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) rotate(0deg) scale(1.15);
+  }
+  60% {
+    transform: translateY(0px) rotate(-2deg) scale(1);
+  }
+  70% {
+    transform: translateY(-10px) rotate(2deg) scale(1.05);
+  }
+  80% {
+    transform: translateY(0px) rotate(-1deg) scale(1);
+  }
+  90% {
+    transform: translateY(-5px) rotate(1deg) scale(1.02);
+  }
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-hint {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.dance-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #ff6b6b, #ffa500);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.dance-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.dance-button:active {
+  transform: translateY(1px);
+}
+
+.dance-button.active {
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+  animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-1px) scale(1.02);
+  }
+}
+
+.rabbit-wrapper.dancing {
+  animation: containerShake 2s ease-in-out infinite;
+}
+
+@keyframes containerShake {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-1px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(1px);
+  }
+}
+
+@media (max-width: 768px) {
+  .rabbit-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .dance-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  @keyframes rabbitDance {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    10% {
+      transform: translateY(-15px) rotate(-3deg) scale(1.03);
+    }
+    20% {
+      transform: translateY(0px) rotate(3deg) scale(1);
+    }
+    30% {
+      transform: translateY(-10px) rotate(-2deg) scale(1.05);
+    }
+    40% {
+      transform: translateY(0px) rotate(2deg) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) rotate(0deg) scale(1.08);
+    }
+    60% {
+      transform: translateY(0px) rotate(-1deg) scale(1);
+    }
+    70% {
+      transform: translateY(-8px) rotate(1deg) scale(1.03);
+    }
+    80% {
+      transform: translateY(0px) rotate(-0.5deg) scale(1);
+    }
+    90% {
+      transform: translateY(-3px) rotate(0.5deg) scale(1.01);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .rabbit-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .dance-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    padding: 20px 10px;
+  }
+
+  .dancing-rabbit-container {
+    gap: 20px;
+  }
+
+  @keyframes rabbitDance {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-10px) rotate(-2deg) scale(1.03);
+    }
+    50% {
+      transform: translateY(-15px) rotate(0deg) scale(1.05);
+    }
+    75% {
+      transform: translateY(-8px) rotate(2deg) scale(1.02);
+    }
+  }
+}
