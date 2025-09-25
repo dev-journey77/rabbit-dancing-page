@@ -1,0 +1,6 @@
+# gh-pages cache
+node_modules/.cache/
+.cache/
+
+# OS files
+.DS_Store
